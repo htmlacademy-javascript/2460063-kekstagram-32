@@ -1,9 +1,9 @@
-// 1 задача. Функция для проверки длины строки
+// Функция для проверки длины строки
 const checksStringLength = (string, length) =>{
   return string.length <= length ? true : false;
 }
 
-// 2 задача.Функция для проверки, является ли строка палиндромом.
+// Функция для проверки, является ли строка палиндромом.
 const checkingForPalindrome = (string) =>{
   let convertedString = string.replaceAll(' ','').toLowerCase();
   let resultString = '';
@@ -14,7 +14,7 @@ const checkingForPalindrome = (string) =>{
   return convertedString === resultString ? true : false;
 }
 
-// 3 задача.Функция принимает строку, извлекает содержащиеся в ней цифры
+//Функция принимает строку, извлекает содержащиеся в ней цифры
 const getNumbers = (string) => {
    let convertedString = string.toString();
     let resultString = '';
