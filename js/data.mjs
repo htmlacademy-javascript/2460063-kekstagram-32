@@ -1,3 +1,4 @@
+import {getIdPost, getIdComments, getUrlPhotos, getRandomInteger, getElemenyFromArray, getNumberFromArray} from './util.mjs';
 
 const NAME = [
   'Иван',
@@ -68,55 +69,31 @@ const MESSAGE = [
 const COUNT_PHOTO = 25;
 
 
-function makeCounter() {
-  let currentCount = 1;
-
-  function counter() {
-    return currentCount++;
-  }
-
-  return counter;
-}
-
-const idPost = makeCounter();
-const idComments = makeCounter();
-
-
-const getRandomInteger = (a, b) => {
-  const lower = Math.ceil(Math.min(a, b));
-  const upper = Math.floor(Math.max(a, b));
-  const result = Math.random() * (upper - lower + 1) + lower;
-  return Math.floor(result);
-};
-
-function postPhoto() {
-  function getComments() {
-    function getMessage() {
-      const quantityOfMessage = getRandomInteger(1,2);
-      if (quantityOfMessage > 1){
-        return MESSAGE[getRandomInteger(0, MESSAGE.length - 1)] + MESSAGE[getRandomInteger(0, MESSAGE.length - 1)];
-      }else {
-        return MESSAGE[getRandomInteger(0, MESSAGE.length - 1)];
+const postPhoto = () => {
+  const getComments = () => {
+    const getMessage = () => {
+      if (getRandomInteger(1,2) > 1){
+        return getElemenyFromArray(MESSAGE) + getElemenyFromArray(MESSAGE);
       }
-    }
+      return getElemenyFromArray(MESSAGE);
+    };
     return {
-      id: idComments(),
+      id: getIdComments(),
       avatar: `img/avatar-${getRandomInteger(1, 6)}.svg`,
       message: getMessage(),
-      name: NAME[getRandomInteger(0, NAME.length - 1)]
+      name: NAME[getNumberFromArray(0, NAME.length - 1)]
     };
-  }
-  const arrayComments = Array.from({length:getRandomInteger(0, 30)}, getComments);
-  return {
-    id: idPost(),
-    url: `photo/${getRandomInteger(1, 25)}.jpg`,
-    description: DESCRIPTION_PHOTO[getRandomInteger(0, DESCRIPTION_PHOTO.length - 1)],
-    likes: getRandomInteger(15, 200),
-    comments:  arrayComments
   };
-}
+  const arrayOfComments = Array.from({length:getRandomInteger(0, 30)}, getComments);
+  return {
+    id: getIdPost(),
+    url: `photo/${getUrlPhotos()}.jpg`,
+    description: getElemenyFromArray(DESCRIPTION_PHOTO),
+    likes: getRandomInteger(15, 200),
+    comments:  arrayOfComments
+  };
+};
 
-const arrayPhoto = Array.from({length:COUNT_PHOTO}, postPhoto);
+const arrayOfPhotographs = Array.from({length:COUNT_PHOTO}, postPhoto);
 
-console.log(arrayPhoto);
-
+export {arrayOfPhotographs};
