@@ -1,4 +1,4 @@
-import {getIdPost, getIdComments, getUrlPhotos, getRandomInteger, getElemenyFromArray, getNumberFromArray} from './util.mjs';
+import {getIdPost, getIdComments, getUrlPhotos, getRandomInteger, getElemenyFromArray, getNumberFromArray} from './util.js';
 
 const NAME = [
   'Иван',
@@ -87,7 +87,7 @@ const postPhoto = () => {
   const arrayOfComments = Array.from({length:getRandomInteger(0, 30)}, getComments);
   return {
     id: getIdPost(),
-    url: `photo/${getUrlPhotos()}.jpg`,
+    url: `photos/${getUrlPhotos()}.jpg`,
     description: getElemenyFromArray(DESCRIPTION_PHOTO),
     likes: getRandomInteger(15, 200),
     comments:  arrayOfComments
