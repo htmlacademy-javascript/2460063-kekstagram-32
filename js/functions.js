@@ -31,22 +31,21 @@ const checkMeetingDuration = (starDay, endingDay, startMeeting, durationOfTheMee
   const convertedStarDay = starDay.split(':');
   const convertEdendingDay = endingDay.split(':');
   const convertedStartMeeting = startMeeting.split(':');
-  const minutesStarDay = (parseInt(convertedStarDay[0]*60)) + parseInt(convertedStarDay[1]);
-  const minutesEndingDay = (parseInt(convertEdendingDay[0]*60)) + parseInt(convertEdendingDay[1]);
-  const minutesStartMeeting = (parseInt(convertedStartMeeting[0]*60)) + parseInt(convertedStartMeeting[1]);
-  const meetingInMinutes = minutesStartMeeting + parseInt(durationOfTheMeeting);
-  let result = meetingInMinutes >= minutesStarDay && meetingInMinutes <= minutesEndingDay
-  console.log(result)
-}
+  const minutesStarDay = (parseInt(convertedStarDay[0],10) * 60) + parseInt(convertedStarDay[1],10);
+  const minutesEndingDay = (parseInt(convertEdendingDay[0],10) * 60) + parseInt(convertEdendingDay[1],10);
+  const minutesStartMeeting = (parseInt(convertedStartMeeting[0],10) * 60) + parseInt(convertedStartMeeting[1],10);
+  const meetingInMinutes = minutesStartMeeting + parseInt(durationOfTheMeeting,10);
+  const result = meetingInMinutes >= minutesStarDay && meetingInMinutes <= minutesEndingDay;
+  console.log(result);
+};
 
 
+checkMeetingDuration('08:00', '17:30', '14:00', 90);
+checkMeetingDuration('8:0', '10:0', '8:0', 120);
+checkMeetingDuration('08:00', '14:30', '14:00', 90);
+checkMeetingDuration('14:00', '17:30', '08:0', 90);
+checkMeetingDuration('8:00', '17:30', '08:00', 900);
 
-checkMeetingDuration('08:00', '17:30', '14:00', 90),
-checkMeetingDuration('8:0', '10:0', '8:0', 120)
-checkMeetingDuration('08:00', '14:30', '14:00', 90),
-checkMeetingDuration('14:00', '17:30', '08:0', 90),
-checkMeetingDuration('8:00', '17:30', '08:00', 900)
-
-checksStringLength();
-checkingForPalindrome();
-getNumbers();
+checksStringLength('яблоко');
+checkingForPalindrome('казак');
+getNumbers('2023 год');

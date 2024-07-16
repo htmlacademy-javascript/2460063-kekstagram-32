@@ -33,7 +33,4 @@ const getNumberFromArray = (min, max) => {
   const randomElement = array[Math.floor(Math.random() * array.length)];
   return randomElement;
 };
-
-
-
 export {getIdPost, getIdComments, getUrlPhotos, getRandomInteger, getElemenyFromArray, getNumberFromArray};
