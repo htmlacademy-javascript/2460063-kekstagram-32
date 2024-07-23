@@ -36,7 +36,6 @@ const checkMeetingDuration = (starDay, endingDay, startMeeting, durationOfTheMee
   const minutesStartMeeting = (parseInt(convertedStartMeeting[0],10) * 60) + parseInt(convertedStartMeeting[1],10);
   const meetingInMinutes = minutesStartMeeting + parseInt(durationOfTheMeeting,10);
   const result = meetingInMinutes >= minutesStarDay && meetingInMinutes <= minutesEndingDay;
-  console.log(result);
 };
 
 

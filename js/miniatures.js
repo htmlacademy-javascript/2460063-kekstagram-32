@@ -3,6 +3,7 @@ import {arrayOfPhotographs} from './data.js';
 const listPhotos = document.querySelector('.pictures');
 const photoTemplate = document.querySelector('#picture').content.querySelector('.picture');
 
+
 const photos = arrayOfPhotographs;
 const listFragment = document.createDocumentFragment();
 
@@ -15,3 +16,4 @@ photos.forEach(({url, description, comments, likes}) => {
   listPhotos.appendChild(photoElement);
 });
 listPhotos.appendChild(listFragment);
+
