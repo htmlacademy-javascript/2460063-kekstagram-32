@@ -97,3 +97,4 @@ const postPhoto = () => {
 const arrayOfPhotographs = Array.from({length:COUNT_PHOTO}, postPhoto);
 
 export {arrayOfPhotographs};
+
