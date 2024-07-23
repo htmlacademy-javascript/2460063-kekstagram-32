@@ -30,7 +30,20 @@ miniatures.forEach((miniature,index) => {
     fullImage.querySelector('.social__comment-shown-count').textContent = getTheInitialValueOfComments();
     fullImage.querySelector('.social__comment-total-count').textContent = miniature.querySelector('.picture__comments').textContent;
     const comments = listPhotos[index].comments;
-
+    if (comments.length <= 5){
+      createCommentList(comments);
+    } else {
+      showMoreButton.classList.remove('hidden');
+      createCommentList(comments.splice(0,5));
+      showMoreButton.addEventListener('click', () => {
+        if (comments.length <= 5){
+          createCommentList(comments);
+          showMoreButton.classList.add('hidden');
+        }else{
+          createCommentList(comments.splice(0,5));
+        }
+      });
+    }
   });
 });
 
