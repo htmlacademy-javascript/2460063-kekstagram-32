@@ -95,29 +95,6 @@ const closeForm = () => {
   document.removeEventListener('keydown', pressAKey);
 };
 
-const changeImage = () => {
-  const newEvent = new Event('change');
-  fieldScale.dispatchEvent(newEvent);
-  return parseInt(fieldScale.value, 10) / 100;
-};
-
-const zoomOut = () => {
-  const step = 0.25;
-  const currentScale = parseInt(fieldScale.value,10) / 100;
-  if(currentScale > step){
-    fieldScale.value = (currentScale - step) * 100 + '%';
-    image.style.transform = `scale(${changeImage()})`;
-  }
-};
-
-const zoomIn = () => {
-  const step = 0.25;
-  const currentScale = parseInt(fieldScale.value,10) / 100;
-  if(currentScale < 1){
-    fieldScale.value = (currentScale + step) * 100 + '%';
-    image.style.transform = `scale(${changeImage()})`;
-  }
-};
 
 
 uploadField.addEventListener('change', openForm);
